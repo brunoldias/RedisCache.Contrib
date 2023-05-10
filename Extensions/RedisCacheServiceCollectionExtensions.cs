@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Caching.StackExchangeRedis;
+﻿
+using Microsoft.Extensions.Caching.Redis;
 using Microsoft.Extensions.DependencyInjection;
 using RedisCache.Contrib.Concrats;
 using System;
@@ -28,7 +29,7 @@ namespace RedisCache.Contrib.Extensions
                 throw new ArgumentNullException(nameof(action));
             }
 
-            services.AddStackExchangeRedisCache(action);
+            services.AddDistributedRedisCache(action);
             services.AddScoped<ICacheManager, CacheManager>();
         }
 

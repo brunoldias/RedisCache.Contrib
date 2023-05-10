@@ -30,7 +30,7 @@ namespace RedisCache.Contrib
         /// <param name="time"></param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public async ValueTask<object> ExecuteCacheAsync(string key, Func<object> data, TimeExpiration time)
+        public async Task<object> ExecuteCacheAsync(string key, Func<object> data, TimeExpiration time)
         {
             if (string.IsNullOrEmpty(key)) throw new ArgumentNullException("key is null");
 
@@ -54,7 +54,7 @@ namespace RedisCache.Contrib
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public async ValueTask<string> Get(string key)
+        public async Task<string> Get(string key)
         {
             return await _distributedCache.GetStringAsync(key);
         }
